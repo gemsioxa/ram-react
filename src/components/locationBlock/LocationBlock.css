@@ -1,0 +1,45 @@
+.location-container {
+    position: relative;
+    float: right;
+
+}
+.location-canvas {
+    border: 2px solid var(--black);
+    display: inline-block;
+    /*border-radius: 2px;*/
+    background: green;
+
+}
+.location-amount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+}
+
+.results {
+    height: 100vh;
+
+}
+.location-elem {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+}
+.location-elem .location-prompt {
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    background-color: var(--bg-secondary);
+    width: max-content;
+    max-width: 250px;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4), 0 8px 24px -6px rgba(22, 26, 29, 0.16);
+}
+.location-elem:hover .location-prompt {
+    display: block;
+}
