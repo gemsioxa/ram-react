@@ -1,9 +1,3 @@
-.App {
-    display: flex;
-    flex-direction: column;
-}
-
-
 .location-extra {
     position: relative;
     display: inline-block;
