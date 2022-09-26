@@ -10,26 +10,6 @@ export default function LocationRender() {
         setLoading(true)
         setError(false)
 
-        // let cancel
-        // axios({
-        //     method: 'GET',
-        //     url: `https://rickandmortyapi.com/api/location?page=${pageNumber}`,
-        //     params: {page: pageNumber},
-        //     cancelToken: new axios.CancelToken(c => cancel = c)
-        // })
-        //     .then(res => {
-        //     setLocations(prevLocations => {
-        //         return [...[...prevLocations, ...res.data.results]]
-        //     })
-        //     setHasMore(res.data.info.count - locations.length > 0)
-        //     setLoading(false)
-        // })
-        //     .catch(e => {
-        //     if (axios.isCancel(e)) return
-        //     setLoading(false)
-        //     setError(true)
-        // })
-        // return () => cancel()
 
         let cancel
         axios({

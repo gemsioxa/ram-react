@@ -1,8 +1,8 @@
 import './App.css';
 import './color-constants.css'
 import React, {useEffect, useState, useRef} from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/js/bootstrap'
 import axios from "axios";
 import locationSVG from './logo.svg'
 import LocationRender from './LocationRender'
@@ -17,26 +17,38 @@ export default function App() {
     loading,
     error,
     locations
-  } = LocationRender()
+  } = LocationRender();
 
 
+    if (locations.length > 126) {
+        for (let i = 126; i <= locations.length; i++) {
+         delete locations[i]
+        }
+    }
 
- if (locations.length > 126) {
-   for (let i = 126; i <= locations.length; i++) {
-     delete locations[i]
-   }
- }
-  return (
+    const resCount = locations.map(location => {return location.residents.length})
+
+    let resSum = 0;
+    for (const obj of Object.keys(resCount)) {
+        resSum += +resCount[obj];
+    }
+
+    console.log(resSum)
+
+
+    return (
     <>
-    <h2>Locations</h2>
+    {/*<h2>Locations</h2>*/}
 
-      <div>
+        <div className="App">
         {locations.map((location) => {
           return (
-            <div className='col-2 location-extra' key={location.id}>
-                <img src={locationSVG} height={location.residents.length * 0.5 + 5} alt=""/>
-                <span className='location-extra-text'>{location.name} <br/> {location.residents.length} residents </span>
-            </div>
+              // style={{height: location.residents.length * 5 + 2, width: location.residents.length * 5 + 2}}
+                <div className='item' key={location.id} >
+
+                    {/*<img src={locationSVG} height={location.residents.length * 1080 / 100 + 5} width={5} alt=""/>*/}
+                    <span className='location-extra-text'>{location.name} <br/> {location.residents.length} residents </span>
+                </div>
           )
         })}
       </div>
