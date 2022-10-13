@@ -9,11 +9,10 @@ export default function LocationRender() {
 
     useEffect(() => {
         console.log('useEffect render')
-        setLoading(true)
-        setError(false)
-
+        if (!loading) return
 
         let cancel
+
         axios({
             url: `https://rickandmortyapi.com/api/location`,
             cancelToken: new axios.CancelToken(c => cancel = c)
@@ -32,6 +31,7 @@ export default function LocationRender() {
         }
             })
             .catch(e => {
+                setError(!error)
                 if (axios.isCancel(e)) return null
             })
 
