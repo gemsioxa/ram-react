@@ -6,7 +6,9 @@ export default function LocationRender() {
     const [error, setError] = useState(false)
     const [locations, setLocations] = useState([])
 
+
     useEffect(() => {
+        console.log('useEffect render')
         setLoading(true)
         setError(false)
 
@@ -16,21 +18,23 @@ export default function LocationRender() {
             url: `https://rickandmortyapi.com/api/location`,
             cancelToken: new axios.CancelToken(c => cancel = c)
         })
-            .then(trying => {
+            .then(() => {
         for (let i = 1; i < 8; i++) {
-            Promise.all([fetch(`https://rickandmortyapi.com/api/location?page=${i}`)])
-                .then(async response => await response[0].json())
-                .then(async commits => await setLocations(prevLocations => {
+            ( async function () {
+                Promise.all([fetch(`https://rickandmortyapi.com/api/location?page=${i}`)])
+                .then(response => response[0].json())
+                .then( commits => setLocations(prevLocations => {
                     return [...new Set([...prevLocations, ...commits.results])]
                 }))
-                .then(after => {
+                .then(() => {
                     setLoading(false)
-                })
+                })})()
         }
             })
             .catch(e => {
-                if (axios.isCancel(e)) return
+                if (axios.isCancel(e)) return null
             })
+
         return () => cancel
         }, [])
     return { loading, error, locations }

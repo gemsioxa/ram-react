@@ -1,30 +1,18 @@
 import './App.css';
 import './color-constants.css'
-import React, {useEffect, useState, useRef} from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/js/bootstrap'
-import axios from "axios";
-import locationSVG from './logo.svg'
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap'
 import LocationRender from './LocationRender'
 
 
-
 export default function App() {
-  const objCount = 126;
-
 
   const {
     loading,
     error,
     locations
   } = LocationRender();
-
-
-    if (locations.length > 126) {
-        for (let i = 126; i <= locations.length; i++) {
-         delete locations[i]
-        }
-    }
 
     const resCount = locations.map(location => {return location.residents.length})
 
@@ -37,16 +25,11 @@ export default function App() {
 
 
     return (
-    <>
-    {/*<h2>Locations</h2>*/}
-
+    <div>
         <div className="App">
         {locations.map((location) => {
           return (
-              // style={{height: location.residents.length * 5 + 2, width: location.residents.length * 5 + 2}}
                 <div className='item' key={location.id} >
-
-                    {/*<img src={locationSVG} height={location.residents.length * 1080 / 100 + 5} width={5} alt=""/>*/}
                     <span className='location-extra-text'>{location.name} <br/> {location.residents.length} residents </span>
                 </div>
           )
@@ -54,6 +37,6 @@ export default function App() {
       </div>
       <div>{loading && 'Loading...'}</div>
       <div>{error && 'Error!'}</div>
-    </>
+    </div>
   )
 }
