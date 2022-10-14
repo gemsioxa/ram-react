@@ -1,6 +1,5 @@
 .render-app {
     height: 100vh;
-    /*width: 100vw;*/
     display: flex;
     flex-direction: row;
 
@@ -9,22 +8,13 @@
 .item {
     padding: 0 2px;
     display: flex;
-    background: #717171;
+    background: linear-gradient(0deg, rgba(157,0,164,1) 0%, rgba(131,5,255,1) 100%);
     border-right: 1px solid black;
 }
 
 .item:last-child {
     border: none;
 }
-
-/* Number */
-/*.item:before {*/
-/*    !*counter-increment: albumList;*!*/
-/*    !*content: counter(albumList);*!*/
-/*    margin:auto;*/
-/*    font-size: 40px;*/
-/*    color: #000000;*/
-/*}*/
 
 .location-extra {
     position: relative;

@@ -2,6 +2,8 @@ import LocationRender from './LocationRender'
 import CalculationSize from "./CalculationSize";
 import React from "react";
 
+import {ReactComponent as ItemSVG} from "../squareItem.svg";
+
 export default function Display() {
 
     const {
