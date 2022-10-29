@@ -5,10 +5,10 @@ export default function LocationRender() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [locations, setLocations] = useState([])
-
+    const AMOUNT_OF_PAGES = 7
 
     useEffect(() => {
-        console.log('useEffect render')
+        // console.log('useEffect render')
         if (!loading) return
 
         let cancel
@@ -18,7 +18,7 @@ export default function LocationRender() {
             cancelToken: new axios.CancelToken(c => cancel = c)
         })
             .then(() => {
-        for (let i = 1; i < 8; i++) {
+        for (let i = 1; i <= AMOUNT_OF_PAGES; i++) {
             ( async function () {
                 Promise.all([fetch(`https://rickandmortyapi.com/api/location?page=${i}`)])
                 .then(response => response[0].json())

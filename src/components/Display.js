@@ -1,47 +1,38 @@
-import LocationRender from './LocationRender'
+import React, {useEffect, useState} from "react";
+import LocationRender from "./LocationRender";
+import PlanetItem from "./PlanetItem";
 import CalculationSize from "./CalculationSize";
-import React from "react";
 
-import {ReactComponent as ItemSVG} from "../squareItem.svg";
+
 
 export default function Display() {
 
     const {
-        loading,
-        error,
         locations
-    } = LocationRender();
+    } = LocationRender()
 
-    const resCount = locations.map(location => {return location.residents.length})
+    const {
+        size
+    } = CalculationSize()
 
-    let resSum = 0;
-    for (const obj of Object.keys(resCount)) {
-        resSum += +resCount[obj];
-    }
+    // const resCount = locations.map(location => {return location.residents.length})
+    //
+    // let resSum = 0;
+    // for (const obj of Object.keys(resCount)) {
+    //     resSum += +resCount[obj];
+    // }
+    // console.log(resCount, 'resCount') // planets
+    // console.log(resSum, 'resSum') // residents amount
 
-    console.log(resSum)
-
-    const style = {
-        width: CalculationSize() / resSum
-    }
-
-    console.log('const style: ', style.width)
-
-
+    const planetList = locations.map(location => {
+            return <PlanetItem location={location} size={size}/>
+    })
 
     return (
         <>
             <div className='render-app'>
-            {locations.map((location) => {
-                return (
-                    <div className='item' key={location.id} style={{width: style.width * location.residents.length - 4}}>
-                        <span className='location-extra-text'>{location.id} <br/>{location.name} <br/> {location.residents.length} residents </span>
-                    </div>
-                )
-            })}
+                {planetList}
             </div>
-            <div>{loading && 'Loading...'}</div>
-            <div>{error && 'Error!'}</div>
         </>
     )
 }
