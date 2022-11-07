@@ -1,15 +1,10 @@
 import React, {useEffect, useState} from "react";
-import CalculationSize from "./CalculationSize";
 
 export default function PlanetItem(props) {
-
     const [itemStyle, setItemStyle] = useState(0)
 
     useEffect(() => {
         setItemStyle(props.size * props.location.residents.length)
-        // console.log('style', itemStyle, 'size:', props.size)
-
-
     }, [window.innerWidth])
 
     return (

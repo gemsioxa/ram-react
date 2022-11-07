@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function LocationRender() {
-    const [loading, setLoading] = useState(true)
+    const [loaded, setLoaded] = useState(false)
     const [error, setError] = useState(false)
     const [locations, setLocations] = useState([])
     const AMOUNT_OF_PAGES = 7
 
     useEffect(() => {
-        // console.log('useEffect render')
-        if (!loading) return
+        if (loaded) return
 
         let cancel
 
@@ -26,7 +25,7 @@ export default function LocationRender() {
                     return [...new Set([...prevLocations, ...commits.results])]
                 }))
                 .then(() => {
-                    setLoading(false)
+                    setLoaded(true)
                 })})()
         }
             })
@@ -37,5 +36,5 @@ export default function LocationRender() {
 
         return () => cancel
         }, [])
-    return { loading, error, locations }
+    return { loaded, error, locations }
 }

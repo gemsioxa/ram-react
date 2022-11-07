@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import LocationRender from "./LocationRender";
+import {useState} from "react";
 
 export default function CalculationSize() {
     const [size, setSize] = useState(window.innerWidth)
@@ -15,9 +14,7 @@ export default function CalculationSize() {
     }
 
     function windowSize() {
-
         setSize(window.innerWidth / RESIDENTS_AMOUNT)
-        // console.log('calculation:', size)
     }
 
     windowSize = debounce(windowSize, 1000)
