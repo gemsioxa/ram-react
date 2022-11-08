@@ -7,6 +7,8 @@ import CalculationSize from "./CalculationSize";
 
 export default function Display() {
 
+
+
     const {
         locations,
         error,
@@ -23,7 +25,7 @@ export default function Display() {
 
     return (
         <>
-            <div className='render-app'>
+
                 {
                     error ?
                         <div>
@@ -31,11 +33,21 @@ export default function Display() {
                         </div> :
                     loaded ?
                     planetList :
-                        <div>
-                            <h1>Loading...</h1>
+                        <div className="lds-spinner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                 }
-            </div>
         </>
     )
 }
