@@ -1,15 +1,16 @@
 import './App.css';
 import './color-constants.css'
 import React from "react";
-import Display from "./components/Display";
 import BinaryTreeFunc from "./components/BinaryTree";
+import AppRouter from "./components/AppRouter";
+import {BrowserRouter} from "react-router-dom";
 
 export default function App() {
 
-    BinaryTreeFunc()
+    // BinaryTreeFunc()
   return (
-      <div className='render-app'>
-        <Display/>
-      </div>
+      <BrowserRouter>
+          <AppRouter/>
+      </BrowserRouter>
   )
 }

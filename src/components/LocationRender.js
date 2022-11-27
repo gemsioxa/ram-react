@@ -5,9 +5,24 @@ export default function LocationRender() {
     const [loaded, setLoaded] = useState(false)
     const [error, setError] = useState(false)
     const [locations, setLocations] = useState([])
+    // const [pageAmount, setPageAmount] = useState(0)
     const AMOUNT_OF_PAGES = 7
 
+
+
     useEffect(() => {
+
+        // const fetchPage = async () => {
+        //     await fetch('https://rickandmortyapi.com/api/location')
+        //         .then(res => res.json())
+        //         .then(data => data.info.pages)
+        //         .then(num => setPageAmount(num))
+        //     console.log(fetchPage())
+        // }
+
+
+
+
         if (loaded) return
 
         let cancel

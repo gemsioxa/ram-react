@@ -24,7 +24,7 @@ export default function Display() {
     })
 
     return (
-        <>
+        <div className='item-list'>
 
                 {
                     error ?
@@ -48,6 +48,6 @@ export default function Display() {
                             <div></div>
                         </div>
                 }
-        </>
+        </div>
     )
 }
