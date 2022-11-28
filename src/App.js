@@ -10,7 +10,11 @@ export default function App() {
     // BinaryTreeFunc()
   return (
       <BrowserRouter>
+          <div className="render-app">
+
           <AppRouter/>
+
+          </div>
       </BrowserRouter>
   )
 }

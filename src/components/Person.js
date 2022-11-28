@@ -17,10 +17,13 @@ const Person = (props) => {
             })
     }, [])
 
-    console.log(resident[0])
     return (
         <div className='item' style={{width: itemStyle}}>
-            <span className='location-extra-text'>{resident[0]?.name}<br/>{resident[0]?.status}<br/>{resident[0]?.species}</span>
+
+            <span className='location-extra-text'>
+                <img src={resident[0]?.image} alt="" className="location-extra-img"/>
+                <br/>
+                {resident[0]?.name}<br/>{resident[0]?.status}<br/>{resident[0]?.species}</span>
         </div>
     );
 };
