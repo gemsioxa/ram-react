@@ -35,7 +35,6 @@
 }
 .location-extra-img {
     width: 150px;
-    margin: 0 5px;
     border-radius: 6px;
 }
 
@@ -47,7 +46,7 @@
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px;
     position: absolute;
     z-index: 1;
     opacity: 0;
